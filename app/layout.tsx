@@ -31,7 +31,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${ralewaysSans.variable} ${poppinsSans.variable}  ${mulishSans.variable} h-full antialiased`}
-    // <link rel="preconnect" href="https://fonts.googleapis.com" />
+
     >
 
       <body className="min-h-full flex flex-col">
