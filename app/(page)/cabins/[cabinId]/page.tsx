@@ -129,7 +129,7 @@ export default async function Page({ params }: PageProps) {
                                     <span className="text-white/30 text-[13px] line-through">${cabin.regularPrice}/night</span>
                                 )}
                             </div>
-                            <Box_Reservation />
+                            <Box_Reservation cabin={cabin} />
                         </div>
 
                     </div>

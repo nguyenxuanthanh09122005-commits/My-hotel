@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import AuthProvider from "./components/AuthProvider";
 import Footer from "./components/Footer";
+import { Toaster } from 'react-hot-toast';
 
 const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
@@ -43,6 +44,18 @@ export default function RootLayout({
             {children}
           </main>
         </AuthProvider>
+        <Toaster 
+          position="top-center" 
+          containerStyle={{ zIndex: 999999 }}
+          toastOptions={{
+            duration: 3000,
+            style: {
+              background: '#333',
+              color: '#fff',
+              fontFamily: 'var(--font-poppins-sans)',
+            },
+          }} 
+        />
 
         <footer className="flex item-center justify-center bg-text font-raleway text-white font-bold">
           <Footer />

@@ -2,7 +2,7 @@ import { BookingRequest } from "../types/BookingType";
 import { BaseURL } from "./cabin";
 
 export async function CreatBooking(token: string, Formdata: BookingRequest) {
-    const res = await fetch(`${BaseURL}/cabins`, {
+    const res = await fetch(`${BaseURL}/bookings`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
