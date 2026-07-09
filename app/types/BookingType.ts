@@ -1,3 +1,5 @@
+import { CabinResponse } from "./CabinType"
+
 export type BookingRequest = {
     cabinId: string | number,
     startDate: Date,
@@ -7,7 +9,7 @@ export type BookingRequest = {
 }
 export type BookingRessponse = {
     cabinPrice: number,
-    cabins: string,
+    cabins: CabinResponse,
     createdAt: Date,
     endDate: Date,
     extrasPrice: number
@@ -22,4 +24,13 @@ export type BookingRessponse = {
     status: string,
     totalPrice: number,
     updatedAt: Date
+}
+export type UpdateBookingRequest = {
+    status: string,
+    isPaid: boolean,
+    hasBreakfast: boolean,
+    observations: string,
+    numGuests: number,
+    extrasPrice: number,
+    totalPrice: number
 }

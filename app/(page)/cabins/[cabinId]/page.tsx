@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { CabinId } from '@/app/lib/cabin';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +9,7 @@ type PageProps = {
     params: Promise<{ cabinId: string }>;
 };
 
-export default async function Page({ params }: PageProps) {
+async function CabinContent({ params }: PageProps) {
     const cabinId = (await params).cabinId;
     const cabin = await CabinId(cabinId);
 
@@ -18,16 +19,16 @@ export default async function Page({ params }: PageProps) {
     if (!cabin || !cabin.id) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[70vh] text-center p-8 bg-white font-poppins text-black">
-                <div className="w-24 h-24 bg-amber-50 rounded-full flex items-center justify-center mb-8 text-text animate-scale-in">
+                <div className="w-24 h-24 bg-amber-50 rounded-full flex items-center justify-center mb-8 text-text" data-aos="zoom-in">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
                     </svg>
                 </div>
-                <h2 className="text-4xl font-extrabold text-text mb-4 animate-fade-in-up">Cabin Not Found</h2>
-                <p className="text-zinc-500 mb-10 max-w-md font-mulish text-[15px] leading-relaxed animate-fade-in-up animation-delay-200">
+                <h2 className="text-4xl font-extrabold text-text mb-4" data-aos="fade-up" data-aos-delay="100">Cabin Not Found</h2>
+                <p className="text-zinc-500 mb-10 max-w-md font-mulish text-[15px] leading-relaxed" data-aos="fade-up" data-aos-delay="200">
                     We couldn&apos;t find the cabin you&apos;re looking for. It might have been removed or the link is incorrect.
                 </p>
-                <Link href="/cabins" className="bg-text text-white px-10 py-4 hover:bg-[#635334] font-semibold transition-all shadow-lg shadow-amber-900/15 active:scale-95 animate-fade-in-up animation-delay-300">
+                <Link href="/cabins" className="bg-text text-white px-10 py-4 hover:bg-[#635334] font-semibold transition-all shadow-lg shadow-amber-900/15 active:scale-95" data-aos="fade-up" data-aos-delay="300">
                     Browse All Cabins
                 </Link>
             </div>
@@ -47,14 +48,16 @@ export default async function Page({ params }: PageProps) {
                             src={cabin.image}
                             alt={cabin.name}
                             fill
-                            className="object-cover animate-fade-in"
+                            className="object-cover"
+                            data-aos="fade-right"
+                            data-aos-duration="1200"
                             sizes="(max-width: 1024px) 100vw, 50vw"
                             priority
                         />
                         {/* Discount badge */}
                         {cabin.discount > 0 && (
-                            <div className="absolute top-6 left-6 z-10 bg-[#7C6A46] text-white text-[11px] font-bold px-4 py-2 uppercase tracking-wider shadow-lg">
-                                Save ${cabin.discount}/night
+                            <div className="absolute top-6 left-6 z-10 bg-[#7C6A46] text-white text-[11px] font-bold px-4 py-2 uppercase tracking-wider shadow-lg" data-aos="flip-down" data-aos-delay="500">
+                                Save: ${cabin.discount}/night
                             </div>
                         )}
                     </div>
@@ -63,7 +66,7 @@ export default async function Page({ params }: PageProps) {
                     <div className="flex flex-col justify-center px-10 md:px-16 lg:px-20 py-14 lg:py-20 text-white">
 
                         {/* Breadcrumb */}
-                        <div className="flex items-center gap-2 text-[12px] font-mulish text-white/40 mb-8">
+                        <div className="flex items-center gap-2 text-[12px] font-mulish text-white/40 mb-8" data-aos="fade-left" data-aos-delay="100">
                             <Link href="/home" className="hover:text-white/70 transition-colors">Home</Link>
                             <span>/</span>
                             <Link href="/cabins" className="hover:text-white/70 transition-colors">Cabins</Link>
@@ -72,17 +75,17 @@ export default async function Page({ params }: PageProps) {
                         </div>
 
                         {/* Title */}
-                        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-8 leading-[1.1] animate-fade-in-up text-white">
+                        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-8 leading-[1.1] text-white" data-aos="fade-left" data-aos-delay="200">
                             {cabin.name}
                         </h1>
 
                         {/* Description with show more/less */}
-                        <div className="mb-10 animate-fade-in-up animation-delay-100">
+                        <div className="mb-10" data-aos="fade-left" data-aos-delay="300">
                             <CabinDescription description={cabin.description} />
                         </div>
 
                         {/* Info items */}
-                        <div className="space-y-5 animate-fade-in-up animation-delay-200">
+                        <div className="space-y-5" data-aos="fade-left" data-aos-delay="400">
                             <div className="flex items-center gap-4">
                                 <div className="w-9 h-9 rounded-full bg-[#7C6A46]/30 flex items-center justify-center flex-shrink-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="w-[18px] h-[18px] text-[#c4a96a]">
@@ -119,7 +122,7 @@ export default async function Page({ params }: PageProps) {
                         </div>
 
                         {/* Price + CTA */}
-                        <div className="flex items-center gap-6 mt-12 pt-8 border-t border-white/10 animate-fade-in-up animation-delay-300">
+                        <div className="flex items-center gap-6 mt-12 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="500">
                             <div>
                                 <div className="flex items-baseline gap-1.5">
                                     <span className="text-3xl font-extrabold text-[#c4a96a]">${pricePerNight}</span>
@@ -139,7 +142,7 @@ export default async function Page({ params }: PageProps) {
             {/* ========== AMENITIES SECTION ========== */}
             <section className="py-20 md:py-24 bg-[#faf8f5]">
                 <div className="container">
-                    <div className="text-center pb-14 animate-fade-in-up">
+                    <div className="text-center pb-14" data-aos="fade-up">
                         <div className="golden-line mx-auto mb-5"></div>
                         <span className="text-[11px] font-bold text-text uppercase tracking-[0.25em] block pb-3">What&apos;s Included</span>
                         <h2 className="text-3xl md:text-[38px] font-extrabold text-text leading-tight">
@@ -149,7 +152,7 @@ export default async function Page({ params }: PageProps) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6" data-aos="zoom-in-up" data-aos-delay="100">
                             <div className="w-14 h-14 rounded-2xl bg-[#f5f0e8] flex items-center justify-center text-text flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
@@ -161,7 +164,7 @@ export default async function Page({ params }: PageProps) {
                             </div>
                         </div>
 
-                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6" data-aos="zoom-in-up" data-aos-delay="200">
                             <div className="w-14 h-14 rounded-2xl bg-[#f5f0e8] flex items-center justify-center text-text flex-shrink-0">
                                 <Image src="/wifi.svg" width={28} height={28} alt="wifi" />
                             </div>
@@ -171,7 +174,7 @@ export default async function Page({ params }: PageProps) {
                             </div>
                         </div>
 
-                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6" data-aos="zoom-in-up" data-aos-delay="300">
                             <div className="w-14 h-14 rounded-2xl bg-[#f5f0e8] flex items-center justify-center text-text flex-shrink-0">
                                 <Image src="/tv.svg" width={28} height={28} alt="tv" />
                             </div>
@@ -181,7 +184,7 @@ export default async function Page({ params }: PageProps) {
                             </div>
                         </div>
 
-                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6" data-aos="zoom-in-up" data-aos-delay="400">
                             <div className="w-14 h-14 rounded-2xl bg-[#f5f0e8] flex items-center justify-center text-text flex-shrink-0">
                                 <Image src="/shower.svg" width={28} height={28} alt="shower" />
                             </div>
@@ -191,7 +194,7 @@ export default async function Page({ params }: PageProps) {
                             </div>
                         </div>
 
-                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6" data-aos="zoom-in-up" data-aos-delay="500">
                             <div className="w-14 h-14 rounded-2xl bg-[#f5f0e8] flex items-center justify-center text-text flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
@@ -204,7 +207,7 @@ export default async function Page({ params }: PageProps) {
                             </div>
                         </div>
 
-                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex items-start gap-5 bg-white border border-zinc-100 rounded-2xl p-6" data-aos="zoom-in-up" data-aos-delay="600">
                             <div className="w-14 h-14 rounded-2xl bg-[#f5f0e8] flex items-center justify-center text-text flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
@@ -223,7 +226,7 @@ export default async function Page({ params }: PageProps) {
             {/* ========== POLICIES SECTION ========== */}
             <section className="py-20 md:py-24 bg-white">
                 <div className="container">
-                    <div className="text-center pb-14 animate-fade-in-up">
+                    <div className="text-center pb-14" data-aos="fade-up">
                         <div className="golden-line mx-auto mb-5"></div>
                         <span className="text-[11px] font-bold text-text uppercase tracking-[0.25em] block pb-3">Good to Know</span>
                         <h2 className="text-3xl md:text-[38px] font-extrabold text-text leading-tight">
@@ -233,7 +236,7 @@ export default async function Page({ params }: PageProps) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                        <div className="amenity-card flex flex-col items-center text-center gap-4 bg-[#faf8f5] border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex flex-col items-center text-center gap-4 bg-[#faf8f5] border border-zinc-100 rounded-2xl p-6" data-aos="flip-left" data-aos-delay="100">
                             <div className="w-14 h-14 rounded-2xl bg-[#f0ebe0] flex items-center justify-center flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-text">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -245,7 +248,7 @@ export default async function Page({ params }: PageProps) {
                             </div>
                         </div>
 
-                        <div className="amenity-card flex flex-col items-center text-center gap-4 bg-[#faf8f5] border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex flex-col items-center text-center gap-4 bg-[#faf8f5] border border-zinc-100 rounded-2xl p-6" data-aos="flip-left" data-aos-delay="200">
                             <div className="w-14 h-14 rounded-2xl bg-[#f0ebe0] flex items-center justify-center flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-text">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -257,7 +260,7 @@ export default async function Page({ params }: PageProps) {
                             </div>
                         </div>
 
-                        <div className="amenity-card flex flex-col items-center text-center gap-4 bg-[#faf8f5] border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex flex-col items-center text-center gap-4 bg-[#faf8f5] border border-zinc-100 rounded-2xl p-6" data-aos="flip-left" data-aos-delay="300">
                             <div className="w-14 h-14 rounded-2xl bg-[#f0ebe0] flex items-center justify-center flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-text">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -269,7 +272,7 @@ export default async function Page({ params }: PageProps) {
                             </div>
                         </div>
 
-                        <div className="amenity-card flex flex-col items-center text-center gap-4 bg-[#faf8f5] border border-zinc-100 rounded-2xl p-6">
+                        <div className="amenity-card flex flex-col items-center text-center gap-4 bg-[#faf8f5] border border-zinc-100 rounded-2xl p-6" data-aos="flip-left" data-aos-delay="400">
                             <div className="w-14 h-14 rounded-2xl bg-[#f0ebe0] flex items-center justify-center flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-text">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
@@ -287,5 +290,22 @@ export default async function Page({ params }: PageProps) {
 
 
         </div>
+    );
+}
+
+export default async function Page({ params }: PageProps) {
+    return (
+        <Suspense
+            fallback={
+                <div className="min-h-[60vh] flex flex-col items-center justify-center font-mulish">
+                    <div className="w-12 h-12 border-4 border-[#7C6A46]/30 border-t-[#7C6A46] rounded-full animate-spin" />
+                    <p className="mt-4 text-[#7C6A46] text-lg tracking-wide">
+                        Loading cabin details...
+                    </p>
+                </div>
+            }
+        >
+            <CabinContent params={params} />
+        </Suspense>
     );
 }

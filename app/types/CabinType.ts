@@ -1,7 +1,7 @@
 export type CabinResponse = {
     createdAt: Date;
     updatedAt: Date;
-    id: number;
+    id: number | string;
     name: string;
     description: string;
     discount: number;

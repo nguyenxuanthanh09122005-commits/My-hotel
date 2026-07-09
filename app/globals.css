@@ -129,6 +129,7 @@ header {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -136,8 +137,13 @@ header {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
@@ -145,6 +151,7 @@ header {
     opacity: 0;
     transform: scale(0.92);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -156,6 +163,7 @@ header {
     opacity: 0;
     transform: translateX(40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -178,21 +186,36 @@ header {
   animation: slideInRight 0.6s ease-out both;
 }
 
-.animation-delay-100 { animation-delay: 0.1s; }
-.animation-delay-200 { animation-delay: 0.2s; }
-.animation-delay-300 { animation-delay: 0.3s; }
-.animation-delay-400 { animation-delay: 0.4s; }
-.animation-delay-500 { animation-delay: 0.5s; }
-.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
 
 /* Hero section gradient overlay */
 .cabin-hero-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.15) 40%,
-    rgba(0, 0, 0, 0.65) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.15) 40%,
+      rgba(0, 0, 0, 0.65) 100%);
 }
 
 /* Decorative golden line */
@@ -227,4 +250,130 @@ header {
 .policy-item:hover {
   background-color: rgba(124, 106, 70, 0.04);
   padding-left: 8px;
+}
+
+/* ===== Custom react-datepicker ===== */
+.react-datepicker {
+  border: 1px solid #e2dcd0 !important;
+  border-radius: 16px !important;
+  font-family: var(--font-mulish) !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden;
+  padding: 8px !important;
+}
+
+.react-datepicker__header {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #f4f4f5 !important;
+  padding-top: 12px !important;
+  padding-bottom: 8px !important;
+}
+
+.react-datepicker__current-month {
+  font-family: var(--font-poppins) !important;
+  font-weight: 700 !important;
+  color: #18181b !important;
+  /* text-zinc-900 */
+  font-size: 1.1rem !important;
+  margin-bottom: 8px !important;
+}
+
+.react-datepicker__day-name {
+  color: #a1a1aa !important;
+  /* text-zinc-400 */
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  margin: 0.2rem !important;
+  width: 2.2rem !important;
+}
+
+.react-datepicker__day {
+  color: #3f3f46 !important;
+  border-radius: 8px !important;
+  /* Soft rounded corners instead of full circle */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin: 0.2rem !important;
+  width: 2.2rem !important;
+  height: 2.2rem !important;
+  line-height: 2.2rem !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+}
+
+/* Today's Date Styling */
+.react-datepicker__day--today:not(.react-datepicker__day--selected):not(.react-datepicker__day--in-range):not(.react-datepicker__day--in-selecting-range):not(.react-datepicker__day--disabled) {
+  color: #7C6A46 !important;
+  background-color: transparent !important;
+  border: 1.5px solid #7C6A46 !important;
+  font-weight: 800 !important;
+}
+
+/* Hover Effect */
+.react-datepicker__day:hover:not(.react-datepicker__day--disabled):not(.react-datepicker__day--selected):not(.react-datepicker__day--in-range) {
+  background-color: #f4ece1 !important;
+  color: #7C6A46 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 106, 70, 0.15) !important;
+}
+
+/* Selected Dates (Bọc thêm .react-datepicker để tăng độ ưu tiên tuyệt đối) */
+.react-datepicker .react-datepicker__day--selected,
+.react-datepicker .react-datepicker__day--in-range,
+.react-datepicker .react-datepicker__day--in-selecting-range,
+.react-datepicker .react-datepicker__day--keyboard-selected.react-datepicker__day--in-selecting-range,
+.react-datepicker .react-datepicker__day--keyboard-selected.react-datepicker__day--selected {
+  background-color: #7C6A46 !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 6px 16px rgba(124, 106, 70, 0.35) !important;
+}
+
+/* Fix lỗi mảng xanh (mặc định của thư viện) khi dùng bàn phím hoặc click nhấp nhả */
+.react-datepicker .react-datepicker__day--keyboard-selected:not(.react-datepicker__day--selected):not(.react-datepicker__day--in-range) {
+  background-color: #f4ece1 !important;
+  color: #7C6A46 !important;
+}
+
+/* Disabled Dates (Booked) */
+.react-datepicker__day--disabled {
+  color: #d4d4d8 !important;
+  /* zinc-300 */
+  text-decoration: line-through !important;
+  background-color: #faf8f5 !important;
+  border: 1px dashed #e4e4e7 !important;
+  font-weight: 400 !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #71717a !important;
+  /* zinc-500 */
+  border-width: 2px !important;
+  transition: all 0.2s !important;
+}
+
+.react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+  border-color: #7C6A46 !important;
+}
+
+.react-datepicker__navigation {
+  top: 14px !important;
+}
+
+/* ===== About Page ===== */
+.client-logo {
+  transition: all 0.3s ease;
+}
+
+.client-logo:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
 }

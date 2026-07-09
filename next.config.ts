@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**', // Cho phép tải ảnh đại diện từ Google
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**', // Cho phép tải ảnh fallback từ Unsplash
+      },
     ],
   },
 };

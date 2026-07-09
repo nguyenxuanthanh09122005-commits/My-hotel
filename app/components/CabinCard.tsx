@@ -19,7 +19,7 @@ export default function CabinCard(props: CabinCardProps) {
                 </div>
                 <div className='font-mulish text-[12px]'>MaxCapacity: {item.maxCapacity}</div>
             </div>
-            <div className='font-medium text-[20px]'>{item.regularPrice}$/Day</div>
+            <div className='font-medium text-[20px]'>{item.regularPrice}$/Night</div>
             <div><hr /></div>
             <div className='flex items-center justify-between gap-4 w-full'>
                 <div className='flex gap-[27px]  icon'>
@@ -28,7 +28,7 @@ export default function CabinCard(props: CabinCardProps) {
                     <div><Image src="/wifi.svg" alt='wifi' width={50} height={50} className='w-full h-auto' /></div>
                 </div>
                 <div>
-                    <Link href={`/cabins/${item.id}`} className='bg-text text-white px-[36px] py-[12px] text-[15px]'>Detail & Reservation</Link>
+                    <Link href={`/cabins/${item.id}`} className='bg-text hover:bg-[#635334] text-white px-[36px] py-[12px] text-[15px] transition-all duration-300 hover:shadow-lg active:scale-95 inline-block rounded-sm'>Detail & Reservation</Link>
                 </div>
             </div>
         </div>

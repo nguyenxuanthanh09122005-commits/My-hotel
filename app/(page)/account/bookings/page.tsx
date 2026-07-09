@@ -1,21 +1,36 @@
-import Link from 'next/link';
+
+import BookingCard from "@/app/components/BookingCard";
+import { GetServerSession } from "@/app/lib/auth";
+import { ListBooking } from "@/app/lib/booking"
+import { BookingRessponse } from "@/app/types/BookingType";
+import Link from "next/link";
 
 export const metadata = {
-    title: 'Reservations'
+    title: 'Bookings'
 }
 
-export default function ReservationsPage() {
+export default async function BookingsPage() {
+    const session = await GetServerSession();
+    console.log(session, "sssssssssssssssss");
+    if (!session?.accessToken) return;
+    const res = await ListBooking(session.accessToken);
+    console.log(res, "listBookingss");
+
     return (
         <div className="">
             <h2 className="text-3xl font-extrabold text-text mb-8 font-poppins tracking-tight pb-[50px]">Your Reservations</h2>
 
-            {/* Empty State Box */}
-            <div className="bg-white rounded-3xl p-10 border border-[#e2dcd0]/50 shadow-sm flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[400px]">
+            {/* <div className="bg-white rounded-3xl p-10 border border-[#e2dcd0]/50 shadow-sm flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[400px]"> */}
 
-                {/* Background decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#faf8f5] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-70"></div>
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#faf8f5] rounded-full blur-2xl translate-y-1/3 -translate-x-1/4 opacity-70"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#faf8f5] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-70"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#faf8f5] rounded-full blur-2xl translate-y-1/3 -translate-x-1/4 opacity-70"></div>
 
+            {res ?
+                <div className=" flex flex-col gap-2.5">
+                    {res.map((item: BookingRessponse) => {
+                        return (<BookingCard key={item.id} item={item} />)
+                    })}
+                </div> :
                 <div className="relative z-10 flex flex-col items-center">
                     <div className="w-24 h-24 bg-[#faf8f5] rounded-full flex items-center justify-center mb-6 shadow-inner border border-[#e2dcd0]/30 text-[#7C6A46]">
                         <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -37,8 +52,9 @@ export default function ReservationsPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                         </svg>
                     </Link>
-                </div>
-            </div>
+                </div>}
+
         </div>
+        // </div>
     )
 }

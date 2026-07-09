@@ -43,7 +43,7 @@ export default function Modal({ isOpen, onClose, children, maxWidth = 'max-w-md'
             ></div>
 
             {/* Content Container */}
-            <div className={`bg-white rounded-2xl shadow-2xl w-full ${maxWidth} max-h-[95vh] overflow-y-auto mx-4 relative z-[100000] animate-scale-in border border-zinc-100 font-poppins`}>
+            <div className={`bg-white rounded-2xl shadow-2xl w-full md:w-auto ${maxWidth} max-h-[95vh] overflow-y-auto mx-4 relative z-[100000] animate-scale-in border border-zinc-100 font-poppins`}>
                 {children}
             </div>
         </div>

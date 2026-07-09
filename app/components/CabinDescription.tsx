@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type CabinDescriptionProps = {
     description: string;
@@ -8,6 +8,10 @@ type CabinDescriptionProps = {
 
 export default function CabinDescription({ description }: CabinDescriptionProps) {
     const [isExpanded, setIsExpanded] = useState(false);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }, []);
 
     const fallbackDescription =
         "Indulge in absolute luxury and privacy in this meticulously designed cabin. Complete with state-of-the-art facilities, handcrafted local furniture, premium bedding, and a panoramic layout that brings the beauty of the surrounding wilderness directly to you.";
