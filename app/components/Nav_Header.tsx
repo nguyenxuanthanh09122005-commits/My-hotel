@@ -17,9 +17,9 @@ export default function Nav_Header() {
     return (
         <div className=" w-full mx-auto flex items-center justify-between px-4 sm:px-6 md:px-8">
             {/* 1. Phần Logo */}
-            <div className="flex-shrink-0">
-                <Link href="/">
-                    <Image src="/logo.svg" alt="Logo" width={50} height={50} />
+            <div className="flex-shrink-0  w-[60px]">
+                <Link href="/" className='h-full w-full'>
+                    <Image src="/iconne.svg" alt="Logo" width={50} height={50} className='w-full h-auto' />
                 </Link>
             </div>
 
@@ -28,14 +28,13 @@ export default function Nav_Header() {
                 <ul className="flex items-center gap-4 sm:gap-6 md:gap-[30px] lg:gap-[61px]">
                     {navLinks.map((link) => {
                         const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
-                        
+
                         return (
                             <li key={link.href}>
-                                <Link 
-                                    href={link.href} 
-                                    className={`relative font-poppins font-medium text-sm md:text-base py-1 transition-colors duration-300 ${
-                                        isActive ? 'text-text font-bold' : 'text-zinc-600 hover:text-text'
-                                    }`}
+                                <Link
+                                    href={link.href}
+                                    className={`relative font-poppins font-medium text-sm md:text-base py-1 transition-colors duration-300 ${isActive ? 'text-text font-bold' : 'text-zinc-600 hover:text-text'
+                                        }`}
                                 >
                                     {link.label}
                                     {isActive && (

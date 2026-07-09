@@ -11,12 +11,12 @@ export default function Home() {
           <div className="w-full md:w-1/2 flex flex-col gap-6 z-10" data-aos="fade-right">
             <h1 className="text-5xl md:text-[64px] font-bold text-[#18181B] leading-[1.1] font-poppins">
               <span className=" italic text-[#7C6A46] text-[50px] md:text-5xl font-normal block mb-4 pb-[26px]">
-                Paradise View
+                N-Home
               </span>
               Hotel for every <br /> moment rich in <br /> emotion
             </h1>
             <div className="text-zinc-600 font-medium text-[15px] max-w-sm mt-2 pb-[35px]">
-              Every moment feels like the first time <br /> in paradise view
+              Every moment feels like the first time <br /> in N-Home
             </div>
             <div className="flex items-center gap-[38px] text-[20px] font-medium ">
               <Link href="/cabins" className="bg-[#7C6A46] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#6b5b3c] transition-colors ">

@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container w-full ">
                 <div className="w-full flex justify-between  items-start  ">
                     <div className="max-w-[277px] w-[277px]">
-                        <h2 className="mb-[22px]">Paradise view</h2>
+                        <h2 className="mb-[22px]">N-HOME</h2>
                         <p className="text-justify mt-[22px]">The service at the Hotel Monteleone was exceptional. Th
                             ere was absolutely no issue that was not addressed timely and with sati
                             sfactory results. We were particulary impressed with how the hotel staff anticipated
