@@ -25,14 +25,14 @@ export default async function page({ searchParams }: PageProps) {
                     </div>
                     <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full max-w-[654px] px-4 box-title' data-aos="zoom-in-up" data-aos-delay="400" data-aos-duration="1200">
                         <h1 className='font-extrabold'>Rooms and Suites</h1>
-                        <p className=''>The elegant luxury bedrooms in this gallery showcase custom interior<br />
-                            designs & decorating ideas. View pictures and find your<br />
+                        <p className=''>The elegant luxury bedrooms in this gallery showcase custom interior<br className="hidden md:inline" />
+                            designs & decorating ideas. View pictures and find your<br className="hidden md:inline" />
                             perfect luxury bedroom design.</p>
 
-                        <div className="mt-8 animate-bounce" data-aos="fade-in" data-aos-delay="1000">
+                        <div className="mt-4 sm:mt-6 lg:mt-8 animate-bounce" data-aos="fade-in" data-aos-delay="1000">
                             <a href="#cabins-list" aria-label="Scroll to cabins list">
                                 <Image src="/scroll down.svg" alt="Scroll Down" width={50}
-                                    height={90} className='w-auto h-auto mx-auto cursor-pointer' />
+                                    height={90} className='w-8 sm:w-10 lg:w-[50px] h-auto mx-auto cursor-pointer' />
                             </a>
                         </div>
                     </div>

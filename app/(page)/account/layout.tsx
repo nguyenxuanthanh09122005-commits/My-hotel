@@ -9,8 +9,8 @@ export const metadata = {
 export default function AccountLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className='w-full flex justify-between'>
-            <div className=" mx-auto px-4 w-full pt-16 pb-24">
-                <div className="w-full container flex flex-col md:flex-row gap-12 min-h-[600px]">
+            <div className=" mx-auto px-4 w-full pt-8 md:pt-16 pb-12 md:pb-24">
+                <div className="w-full container flex flex-col md:flex-row gap-0 md:gap-12 ">
                     <SideNavigation />
                     <div className="flex-1 w-full  ">
                         <div className=''>

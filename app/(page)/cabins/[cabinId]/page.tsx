@@ -66,7 +66,7 @@ async function CabinContent({ params }: PageProps) {
                     <div className="flex flex-col justify-center px-10 md:px-16 lg:px-20 py-14 lg:py-20 text-white">
 
                         {/* Breadcrumb */}
-                        <div className="flex items-center gap-2 text-[12px] font-mulish text-white/40 mb-8" data-aos="fade-left" data-aos-delay="100">
+                        <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] md:text-[12px] font-mulish text-white/40 mb-6 md:mb-8" data-aos="fade-left" data-aos-delay="100">
                             <Link href="/home" className="hover:text-white/70 transition-colors">Home</Link>
                             <span>/</span>
                             <Link href="/cabins" className="hover:text-white/70 transition-colors">Cabins</Link>
@@ -75,7 +75,7 @@ async function CabinContent({ params }: PageProps) {
                         </div>
 
                         {/* Title */}
-                        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-8 leading-[1.1] text-white" data-aos="fade-left" data-aos-delay="200">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 md:mb-8 leading-[1.1] text-white" data-aos="fade-left" data-aos-delay="200">
                             {cabin.name}
                         </h1>
 
@@ -92,7 +92,7 @@ async function CabinContent({ params }: PageProps) {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
                                     </svg>
                                 </div>
-                                <p className="text-[15px] font-mulish text-white/80">
+                                <p className="text-[13px] sm:text-[14px] md:text-[15px] font-mulish text-white/80">
                                     For up to <strong className="text-white font-bold">{cabin.maxCapacity}</strong> guests
                                 </p>
                             </div>
@@ -104,7 +104,7 @@ async function CabinContent({ params }: PageProps) {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25a7.5 7.5 0 1 1 15 0Z" />
                                     </svg>
                                 </div>
-                                <p className="text-[15px] font-mulish text-white/80">
+                                <p className="text-[13px] sm:text-[14px] md:text-[15px] font-mulish text-white/80">
                                     Located in the heart of the <strong className="text-white font-bold">Paradise Forest</strong>
                                 </p>
                             </div>
@@ -115,7 +115,7 @@ async function CabinContent({ params }: PageProps) {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
                                     </svg>
                                 </div>
-                                <p className="text-[15px] font-mulish text-white/80">
+                                <p className="text-[13px] sm:text-[14px] md:text-[15px] font-mulish text-white/80">
                                     Privacy <strong className="text-white font-bold">100%</strong> guaranteed
                                 </p>
                             </div>
@@ -125,11 +125,11 @@ async function CabinContent({ params }: PageProps) {
                         <div className="flex items-center gap-6 mt-12 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="500">
                             <div>
                                 <div className="flex items-baseline gap-1.5">
-                                    <span className="text-3xl font-extrabold text-[#c4a96a]">${pricePerNight}</span>
-                                    <span className="text-white/40 text-[14px]">/ night</span>
+                                    <span className="text-2xl sm:text-3xl font-extrabold text-[#c4a96a]">${pricePerNight}</span>
+                                    <span className="text-white/40 text-[12px] sm:text-[14px]">/ night</span>
                                 </div>
                                 {cabin.discount > 0 && (
-                                    <span className="text-white/30 text-[13px] line-through">${cabin.regularPrice}/night</span>
+                                    <span className="text-white/30 text-[11px] sm:text-[13px] line-through">${cabin.regularPrice}/night</span>
                                 )}
                             </div>
                             <Box_Reservation cabin={cabin} />
@@ -145,7 +145,7 @@ async function CabinContent({ params }: PageProps) {
                     <div className="text-center pb-14" data-aos="fade-up">
                         <div className="golden-line mx-auto mb-5"></div>
                         <span className="text-[11px] font-bold text-text uppercase tracking-[0.25em] block pb-3">What&apos;s Included</span>
-                        <h2 className="text-3xl md:text-[38px] font-extrabold text-text leading-tight">
+                        <h2 className="text-2xl sm:text-3xl md:text-[38px] font-extrabold text-text leading-tight">
                             Premium Amenities
                         </h2>
                     </div>
@@ -159,8 +159,8 @@ async function CabinContent({ params }: PageProps) {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">Up to {cabin.maxCapacity} Guests</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Spacious layout for families or groups.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">Up to {cabin.maxCapacity} Guests</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Spacious layout for families or groups.</p>
                             </div>
                         </div>
 
@@ -169,8 +169,8 @@ async function CabinContent({ params }: PageProps) {
                                 <Image src="/wifi.svg" width={28} height={28} alt="wifi" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">High-Speed Wi-Fi</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Complimentary fiber-optic internet.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">High-Speed Wi-Fi</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Complimentary fiber-optic internet.</p>
                             </div>
                         </div>
 
@@ -179,8 +179,8 @@ async function CabinContent({ params }: PageProps) {
                                 <Image src="/tv.svg" width={28} height={28} alt="tv" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">4K Smart TV</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Premium streaming services included.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">4K Smart TV</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Premium streaming services included.</p>
                             </div>
                         </div>
 
@@ -189,8 +189,8 @@ async function CabinContent({ params }: PageProps) {
                                 <Image src="/shower.svg" width={28} height={28} alt="shower" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">Luxury Rain Shower</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Spa-inspired bathroom with premium toiletries.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">Luxury Rain Shower</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Spa-inspired bathroom with premium toiletries.</p>
                             </div>
                         </div>
 
@@ -202,8 +202,8 @@ async function CabinContent({ params }: PageProps) {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">Fireplace &amp; Kitchen</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Cozy fireplace and fully-equipped kitchen.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">Fireplace &amp; Kitchen</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Cozy fireplace and fully-equipped kitchen.</p>
                             </div>
                         </div>
 
@@ -214,8 +214,8 @@ async function CabinContent({ params }: PageProps) {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">Private Hot Tub</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Relax under the stars in your own hot tub.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">Private Hot Tub</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Relax under the stars in your own hot tub.</p>
                             </div>
                         </div>
 
@@ -229,7 +229,7 @@ async function CabinContent({ params }: PageProps) {
                     <div className="text-center pb-14" data-aos="fade-up">
                         <div className="golden-line mx-auto mb-5"></div>
                         <span className="text-[11px] font-bold text-text uppercase tracking-[0.25em] block pb-3">Good to Know</span>
-                        <h2 className="text-3xl md:text-[38px] font-extrabold text-text leading-tight">
+                        <h2 className="text-2xl sm:text-3xl md:text-[38px] font-extrabold text-text leading-tight">
                             Policies &amp; House Rules
                         </h2>
                     </div>
@@ -243,8 +243,8 @@ async function CabinContent({ params }: PageProps) {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">Check-in: 2:00 PM</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Anytime from 2:00 PM onwards. Early check-in upon request.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">Check-in: 2:00 PM</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Anytime from 2:00 PM onwards. Early check-in upon request.</p>
                             </div>
                         </div>
 
@@ -255,8 +255,8 @@ async function CabinContent({ params }: PageProps) {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">Check-out: 12:00 PM</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Before noon. Leave keys at the reception counter.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">Check-out: 12:00 PM</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Before noon. Leave keys at the reception counter.</p>
                             </div>
                         </div>
 
@@ -267,8 +267,8 @@ async function CabinContent({ params }: PageProps) {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">Free Cancellation</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">Free cancel up to 7 days before. 50% within 7 days.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">Free Cancellation</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">Free cancel up to 7 days before. 50% within 7 days.</p>
                             </div>
                         </div>
 
@@ -279,8 +279,8 @@ async function CabinContent({ params }: PageProps) {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-bold text-text text-[16px] mb-1">House Rules</h3>
-                                <p className="text-zinc-400 font-mulish text-[13px] leading-relaxed">No smoking. Pets on request. Quiet hours after 10 PM.</p>
+                                <h3 className="font-bold text-text text-[14px] sm:text-[15px] md:text-[16px] mb-1">House Rules</h3>
+                                <p className="text-zinc-400 font-mulish text-[12px] sm:text-[13px] leading-relaxed">No smoking. Pets on request. Quiet hours after 10 PM.</p>
                             </div>
                         </div>
 

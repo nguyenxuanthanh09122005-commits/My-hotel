@@ -18,7 +18,7 @@ export default async function BookingsPage() {
 
     return (
         <div className="">
-            <h2 className="text-3xl font-extrabold text-text mb-8 font-poppins tracking-tight pb-[50px]">Your Reservations</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-text mb-4 sm:mb-8 font-poppins tracking-tight pb-[20px] sm:pb-[50px]">Your Reservations</h2>
 
             {/* <div className="bg-white rounded-3xl p-10 border border-[#e2dcd0]/50 shadow-sm flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[400px]"> */}
 
@@ -38,8 +38,8 @@ export default async function BookingsPage() {
                         </svg>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-text mb-3 font-poppins">No reservations yet</h3>
-                    <p className="text-zinc-500 font-mulish max-w-sm mb-8 leading-relaxed">
+                    <h3 className="text-xl sm:text-2xl font-bold text-text mb-2 sm:mb-3 font-poppins text-center">No reservations yet</h3>
+                    <p className="text-sm sm:text-base text-zinc-500 font-mulish max-w-sm mb-6 sm:mb-8 leading-relaxed text-center px-4">
                         You do not have any upcoming stays. Start planning your next luxury getaway with us.
                     </p>
 

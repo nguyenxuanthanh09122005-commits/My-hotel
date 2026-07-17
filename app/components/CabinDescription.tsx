@@ -22,7 +22,7 @@ export default function CabinDescription({ description }: CabinDescriptionProps)
 
     return (
         <div>
-            <p className="text-[15px] leading-[1.85] text-white/60 font-mulish">
+            <p className="text-[13px] sm:text-[14px] md:text-[15px] leading-[1.85] text-white/60 font-mulish">
                 {displayText}{" "}
                 {isLong && (
                     <button

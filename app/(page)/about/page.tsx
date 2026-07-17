@@ -12,8 +12,8 @@ export default function AboutPage() {
                     </div>
                     <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full max-w-[654px] px-4 box-title' data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                         <h1 className='font-extrabold'>About us</h1>
-                        <p className=''>The elegant luxury bedrooms in this gallery showcase custom interior<br />
-                            designs & decorating ideas. View pictures and find your<br />
+                        <p className=''>The elegant luxury bedrooms in this gallery showcase custom interior<br className="hidden md:inline" />
+                            designs & decorating ideas. View pictures and find your<br className="hidden md:inline" />
                             perfect luxury bedroom design.</p>
                     </div>
                 </div>
@@ -22,27 +22,27 @@ export default function AboutPage() {
             {/* ===== Manager Introduction Section ===== */}
             <section className="container section ">
                 <div className='flex flex-col gap-[74px]'>
-                    <div className="flex flex-col xl:flex-row gap-16 xl:gap-[149px] items-start justify-center">
+                    <div className="flex flex-col xl:flex-row gap-16 xl:gap-[149px] items-center justify-center">
                         {/* Left: Manager Image & Name */}
                         <div className='pt-7 flex flex-col gap-5'>
                             <div className="flex flex-col items-center xl:items-center shrink-0 mx-auto xl:mx-0" data-aos="fade-right" data-aos-duration="1000">
 
 
-                                <div className="relative mt-6">
+                                <div className="relative mt-4 md:mt-6 mr-4 md:mr-6 xl:mr-0">
                                     {/* Decorative background box - matching Figma */}
-                                    <div className="absolute -top-6 -right-6 w-full h-full bg-[#8b7952]" />
-                                    <div className="relative z-10 max-w-[458px] max-h-[613px] overflow-hidden bg-white">
+                                    <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-full h-full bg-[#8b7952]" />
+                                    <div className="relative z-10 w-[280px] sm:w-[350px] md:w-[400px] xl:w-[458px] max-w-full bg-white">
                                         <Image
                                             src="/manager_about.svg"
                                             alt="Chidinma James - Hotel Manager"
                                             width={458}
                                             height={613}
-                                            className="object-cover"
+                                            className="object-cover w-full h-auto"
                                         />
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-10 text-[#000000] font-semibold text-[30px] text-center" data-aos="fade-up" data-aos-delay="300">
+                            <div className="mt-6 md:mt-10 text-[#000000] font-semibold text-2xl md:text-[30px] text-center" data-aos="fade-up" data-aos-delay="300">
                                 Chidinma James (Manager)
                             </div>
                         </div>
@@ -50,7 +50,7 @@ export default function AboutPage() {
                         {/* Right: Description Text */}
                         <div className="max-w-[579px] gap-x-12 gap-y-6 font-mulish text-[#3f3f46] flex-1" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                             <div className="flex flex-col gap-6">
-                                <p className="!text-[13px] leading-relaxed text-justify">
+                                <p className="text-[13px] md:text-[15px] leading-relaxed text-justify">
                                     The United Nations is an international organization founded in 1945. Currently
                                     made up of 193 Member States, the <span className="underline">UN and its work</span> are guided by the purposes
                                     and principles contained in its founding <span className="underline">Charter</span>.
@@ -61,7 +61,7 @@ export default function AboutPage() {
                                     Administrative Officer of the UN – and is also a symbol of the Organization&apos;s ideals
                                     and an advocate for all the world&apos;s peoples, especially the poor and vulnerable.
                                 </p>
-                                <p className="!text-[13px] leading-relaxed text-justify">
+                                <p className="text-[13px] md:text-[15px] leading-relaxed text-justify">
                                     The Secretary-General is appointed by the <span className="underline font-semibold">General Assembly</span> on the
                                     recommendation of the <span className="underline">Security Council</span> for a 5-year, renewable term.
                                     The current Secretary-General, and the 9th occupant of the post, is António
@@ -72,7 +72,7 @@ export default function AboutPage() {
                                 </p>
                             </div>
                             <div className="flex flex-col gap-6">
-                                <p className="!text-[13px] leading-relaxed text-justify">
+                                <p className="text-[13px] md:text-[15px] leading-relaxed text-justify">
                                     The United Nations is an international organization founded in 1945. Currently
                                     made up of 193 Member States, the <span className="underline">UN and its work</span> are guided by the purposes
                                     and principles contained in its founding <span className="underline">Charter</span>.
@@ -83,7 +83,7 @@ export default function AboutPage() {
                                     Administrative Officer of the UN – and is also a symbol of the Organization&apos;s ideals
                                     and an advocate for all the world&apos;s peoples, especially the poor and vulnerable.
                                 </p>
-                                <p className="!text-[13px] leading-relaxed text-justify">
+                                <p className="text-[13px] md:text-[15px] leading-relaxed text-justify">
                                     The Secretary-General is appointed by the <span className="underline font-semibold">General Assembly</span> on the
                                     recommendation of the <span className="underline">Security Council</span> for a 5-year, renewable term.
                                     The current Secretary-General, and the 9th occupant of the post, is António

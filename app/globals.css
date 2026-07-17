@@ -21,7 +21,7 @@
   --font-poppins: var(--font-poppins-sans);
   --font-raleway: var(--font-raleway-sans);
   --font-mulish: var(--font-mulish-sans);
-
+  --breakpoint-md: 912px;
 }
 
 p {
@@ -33,22 +33,47 @@ p {
 .box-title {
   display: flex;
   flex-direction: column;
-  gap: 43px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
 .box-title h1 {
-  font-size: 60px;
+  font-size: 32px;
+  line-height: 1.2;
   color: #ffffff;
   font-weight: 800;
 }
 
 .box-title p {
-  font-size: 15px;
+  font-size: 13px;
   color: #ffffff;
   font-weight: 400;
+}
+
+@media (min-width: 640px) {
+  .box-title {
+    gap: 30px;
+  }
+  .box-title h1 {
+    font-size: 45px;
+  }
+  .box-title p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .box-title {
+    gap: 43px;
+  }
+  .box-title h1 {
+    font-size: 60px;
+  }
+  .box-title p {
+    font-size: 15px;
+  }
 }
 
 h2 {
@@ -372,7 +397,13 @@ header {
   transform: translateY(-3px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
+  .container {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 912px) {
   .container {
     padding: 0 24px;
   }
