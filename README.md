@@ -1,4 +1,4 @@
-<h1 align="center">🏨 My Hotel - Next-Gen Booking Platform</h1>
+<h1 align="center">🏨 N-HOME - Next-Gen Booking Platform</h1>
 
 <div align="center">
   A modern, high-performance hotel booking web application built with <strong>Next.js (App Router)</strong>, focusing on <strong>Clean Architecture, Type Safety, and Premium UI/UX.</strong><br/><br/>
