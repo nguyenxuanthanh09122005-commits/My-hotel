@@ -77,9 +77,15 @@ Following a feature-first and clean architecture approach:
 3. **Environment Setup**
    Create a `.env.local` file:
    ```env
-   NEXT_PUBLIC_API_URL=http://your-backend-api-url.com
+   NEXT_PUBLIC_API_URL=https://the-wild-oasis-api.vercel.app/api
+
+   # Google OAuth Config
+   GOOGLE_CLIENT_ID=your_google_client_id_here
+   GOOGLE_CLIENT_SECRET=your_google_client_secret_here
+
+   # NextAuth Config
+   NEXTAUTH_SECRET=some_random_string
    NEXTAUTH_URL=http://localhost:3000
-   NEXTAUTH_SECRET=generate_a_strong_secret_key_here
    ```
 4. **Run Development Server**
    ```bash
