@@ -80,8 +80,8 @@ Following a feature-first and clean architecture approach:
    NEXT_PUBLIC_API_URL=https://the-wild-oasis-api.vercel.app/api
 
    # Google OAuth Config
-   GOOGLE_CLIENT_ID=your_google_client_id_here
-   GOOGLE_CLIENT_SECRET=your_google_client_secret_here
+   GOOGLE_CLIENT_ID=your_google_client_id
+   GOOGLE_CLIENT_SECRET=your_google_client_secret
 
    # NextAuth Config
    NEXTAUTH_SECRET=some_random_string
