@@ -87,6 +87,9 @@ Following a feature-first and clean architecture approach:
    NEXTAUTH_SECRET=some_random_string
    NEXTAUTH_URL=http://localhost:3000
    ```
+ở web: my-hotel nếu không có file .env.local thì tạo và thêm
+
+GOOGLE_CLIENT_ID=your_google_client_id GOOGLE_CLIENT_SECRET=your_google_client_secret NEXTAUTH_URL=http://localhost:3000 NEXTAUTH_SECRET=some_random_string
 4. **Run Development Server**
    ```bash
    npm run dev
